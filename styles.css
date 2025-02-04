@@ -179,7 +179,6 @@ a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #f3f4f6;
   border: 2px solid transparent;
   border-radius: 8px;
   padding: 0.5rem;
@@ -191,8 +190,8 @@ a {
 }
 
 .work-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   background-color: #f3f4f6;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -257,4 +256,58 @@ a {
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* The container that sets up the 3D perspective */
+#cube-container {
+  width: 75px;
+  height: 75px;
+  perspective: 800px; /* The lower, the more extreme the 3D effect */
+  /* Remove centering so that the container stays at the right flex item */
+  margin-left: auto;
+  position: relative;
+}
+
+/* Update the cube so it’s absolutely positioned and aligned right within its container */
+#cube {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Each face of the cube */
+.face {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #4f4f4f; /* placeholder background color */
+  color: #fff;
+  text-align: center;
+  line-height: 50px; /* vertically center text */
+  font-weight: bold;
+  font-size: 1rem;
+  border: 1px solid #000000;
+}
+
+/* Position each face in 3D */
+.front {
+  transform: translateZ(25px);
+}
+.back {
+  transform: rotateY(180deg) translateZ(25px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(25px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(25px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(25px);
 }

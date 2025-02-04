@@ -35,7 +35,16 @@
             </a>
           </div>
         </div>
-        <div id="cube"></div>
+        <div id="cube-container">
+          <div id="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
       </header>
 
       <!-- About -->
@@ -136,4 +145,41 @@
       </section>
     </main>
   </body>
+  <script>
+    const cube = document.getElementById("cube");
+
+    let targetRotationX = 0,
+      targetRotationY = 0;
+    let currentRotationX = 0,
+      currentRotationY = 0;
+
+    const sensitivity = 10; // Was 20, now more sensitive.
+    const smoothFactor = 0.1;
+
+    // Update target rotation based on mouse position
+    document.addEventListener("mousemove", (e) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const offsetX = e.clientX - centerX;
+      const offsetY = e.clientY - centerY;
+
+      // Negative offsetY so moving up rotates upward.
+      targetRotationY = offsetX / sensitivity;
+      targetRotationX = -offsetY / sensitivity;
+    });
+
+    // Animation loop that smoothly interpolates the cube's rotation
+    function animateCube() {
+      // Gradually interpolate current rotation toward target rotation.
+      currentRotationX += (targetRotationX - currentRotationX) * smoothFactor;
+      currentRotationY += (targetRotationY - currentRotationY) * smoothFactor;
+
+      // Apply the computed rotation.
+      cube.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+
+      requestAnimationFrame(animateCube);
+    }
+
+    animateCube();
+  </script>
 </html>
