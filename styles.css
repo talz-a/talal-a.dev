@@ -36,6 +36,8 @@ body {
   line-height: 1.6;
   color: var(--text-primary);
   background-color: #ffffff;
+  opacity: 0;
+  animation: fadeIn 0.75s forwards;
 }
 
 h1,
@@ -309,6 +311,15 @@ a {
 @media (min-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
