@@ -237,6 +237,24 @@ a {
   font-weight: var(--font-weight-regular);
 }
 
+.all-projects {
+  margin-top: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.all-projects::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.all-projects:hover::after {
+  transform: translateX(8px);
+}
+
 .window-container {
   width: 100px;
   height: 100px;
