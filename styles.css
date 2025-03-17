@@ -245,6 +245,7 @@ a {
     margin-top: 2rem;
     font-weight: bold;
     cursor: pointer;
+    display: inline-block;
     transition: transform 0.3s ease;
 }
 
