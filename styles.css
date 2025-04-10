@@ -27,31 +27,28 @@ body {
 
 h1 {
   font-size: 3rem;
+  line-height: 1.2;
   font-weight: bold;
-}
-
-a {
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 48rem;
+  max-width: 45rem;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .left-header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .header-social-links {
@@ -64,6 +61,8 @@ a {
 .header-social-icon {
   width: 1.3rem;
   height: 1.3rem;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
 }
 
 .header-social-button {
@@ -71,6 +70,8 @@ a {
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
+  text-decoration: none;
   color: inherit;
   background: var(--social-box-bg);
   border: 0.125rem solid var(--social-box-bg);
@@ -98,4 +99,20 @@ a {
 .header-social-button:hover::after {
   opacity: 1;
   transform: translateX(0) translateY(0);
+}
+
+.penguin-container {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-top: -1.2rem;
+}
+
+.penguin-drawing {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
 }

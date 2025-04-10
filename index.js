@@ -1,6 +1,6 @@
-let constraint = 25;
+let constraint = 40;
 let mouseOverContainer = document.getElementsByTagName("body")[0];
-let face = document.getElementById("window");
+let face = document.getElementsByClassName("penguin-drawing")[0];
 
 function transforms(x, y, el) {
   const box = el.getBoundingClientRect();
