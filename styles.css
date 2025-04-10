@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "Satoshi";
-  src: url("./public/fonts/Satoshi-Regular.otf") format("opentype");
+  font-family: "Inter";
+  src: url("./public/fonts/Inter-Regular.otf") format("opentype");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "Satoshi";
-  src: url("./public/fonts/Satoshi-Bold.otf") format("opentype");
+  font-family: "Inter";
+  src: url("./public/fonts/Inter-Bold.otf") format("opentype");
   font-weight: bold;
 }
 
@@ -22,12 +22,17 @@
 body {
   color: var(--text-primary);
   background-color: var(--background);
-  font-family: "Satoshi", Fallback, sans-serif;
+  font-family: "Inter", Fallback, sans-serif;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .container {
@@ -52,7 +57,7 @@ h1 {
 .header-social-links {
   display: flex;
   justify-content: space-between;
-  gap: 0.15rem;
+  gap: 0.1rem;
   transition: all 0.25s var(--ease-out-cubic);
 }
 
@@ -66,19 +71,17 @@ h1 {
   align-items: center;
   justify-content: center;
   position: relative;
-  cursor: pointer;
-  text-decoration: none;
   color: inherit;
   background: var(--social-box-bg);
   border: 0.125rem solid var(--social-box-bg);
-  padding: 0.5rem 1.8rem;
+  padding: 0.5rem 2rem;
   border-radius: 0.6rem;
   transition: all 0.25s var(--ease-out-cubic);
 }
 
 .header-social-button:hover {
   border-color: var(--hover-border);
-  padding-right: 2.8rem;
+  padding-right: 2.9rem;
 }
 
 .header-social-button::after {
