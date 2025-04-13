@@ -1,22 +1,18 @@
-let constraint = 40;
-let mouseOverContainer = document.getElementsByTagName("body")[0];
-let face = document.getElementsByClassName("penguin-drawing")[0];
+document.body.onmousemove = (e) => {
+  const constraint = 40;
+  const face = document.querySelector(".penguin-drawing");
 
-function transforms(x, y, el) {
-  const box = el.getBoundingClientRect();
-  const calcX = -(y - box.y - box.height / 2) / constraint;
-  const calcY = (x - box.x - box.width / 2) / constraint;
-  return `perspective(100px) rotateX(${calcX}deg) rotateY(${calcY}deg)`;
-}
-
-function transformElement(el, xyEl) {
-  el.style.transform = transforms.apply(null, xyEl);
-}
-
-mouseOverContainer.onmousemove = (e) => {
-  const xy = [e.clientX, e.clientY];
-  const position = xy.concat([face]);
   window.requestAnimationFrame(() => {
-    transformElement(face, position);
+    const { x, y, width, height } = face.getBoundingClientRect();
+    const rotateX = -((e.clientY - y - height / 2) / constraint);
+    const rotateY = (e.clientX - x - width / 2) / constraint;
+    face.style.transform = `perspective(100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 };
+
+document.querySelectorAll(".work-item").forEach((item) =>
+  item.addEventListener("mouseenter", () => {
+    document.querySelector(".hover-bg").style.transform =
+      `translateY(${item.offsetTop}px)`;
+  }),
+);
