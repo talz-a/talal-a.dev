@@ -3,7 +3,6 @@
   src: url("./public/fonts/Inter-Regular.otf") format("opentype");
   font-weight: normal;
 }
-
 @font-face {
   font-family: "Inter";
   src: url("./public/fonts/Inter-Bold.otf") format("opentype");
@@ -12,12 +11,17 @@
 
 :root {
   --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --background: #ffffff;
   --text-primary: #111111;
   --text-secondary: #707070;
-  --background: #ffffff;
-  --social-box-bg: #f3f3f3;
-  --hover-border: #929292;
-  --hover-bg: #f5f5f5;
+  --header-gradient: linear-gradient(180deg, #222, #000);
+  --social-button-bg: #f3f3f3;
+  --social-button-border: #d1d1d1;
+  --social-button-hover-bg: #dbdbdb;
+  --social-button-highlight-shadow: #ffffff;
+  --highlight-blue: #007aff;
+  --work-item-hover-bg: #f5f5f5;
 }
 
 body {
@@ -26,9 +30,16 @@ body {
   font-family: "Inter", Fallback, sans-serif;
 }
 
+h1,
+h2,
+h3 {
+  background: var(--header-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -52,7 +63,7 @@ a {
 }
 
 .left-header {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 1rem;
 }
@@ -65,10 +76,10 @@ a {
 }
 
 .header-social-icon {
-  width: 1.3rem;
-  height: 1.3rem;
-  min-width: 1.3rem;
-  min-height: 1.3rem;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
 }
 
 .header-social-button {
@@ -79,31 +90,29 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  background: var(--social-box-bg);
-
-  border: 0.125rem solid var(--social-box-bg);
-
-  padding: 0.5rem 2rem;
+  background: var(--social-button-bg);
+  border: 1px solid var(--social-button-border);
+  box-shadow:
+    0px 0px 1px 1px rgba(255, 255, 255, 0.08) inset,
+    0px 0px 0px 0.5px var(--social-button-highlight-shadow);
+  padding: 0.6rem 1.6rem;
   border-radius: 0.6rem;
   transition: all 0.25s var(--ease-out-cubic);
 }
-
 .header-social-button:hover {
-  border-color: var(--hover-border);
-  padding-right: 2.9rem;
+  background: var(--social-button-hover-bg);
+  padding-right: 2.5rem;
 }
-
 .header-social-button::after {
   content: "↗";
   font-weight: bold;
   position: absolute;
   right: 1.2rem;
-  top: 0.3rem;
+  top: 0.15rem;
   transform: translateX(-0.5rem) translateY(0.5rem);
   transition: all 0.25s var(--ease-out-cubic);
   opacity: 0;
 }
-
 .header-social-button:hover::after {
   opacity: 1;
   transform: translateX(0) translateY(0);
@@ -132,6 +141,24 @@ a {
   gap: 1rem;
 }
 
+.dotted-underline {
+  border-bottom: 2px dotted var(--text-primary);
+  position: relative;
+}
+.dotted-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.125rem;
+  width: 0%;
+  height: 0.125rem;
+  background-color: var(--highlight-blue);
+  transition: width 0.25s ease-out;
+}
+.dotted-underline:hover::after {
+  width: 100%;
+}
+
 .work-items {
   position: relative;
   margin-top: 1rem;
@@ -146,7 +173,7 @@ a {
   left: 0;
   width: 100%;
   height: 5rem;
-  background: var(--hover-bg);
+  background: var(--work-item-hover-bg);
   border-radius: 0.5rem;
   pointer-events: none;
   z-index: 0;
@@ -155,6 +182,10 @@ a {
   transition:
     transform 0.25s var(--ease-out-cubic),
     opacity 0.25s var(--ease-out-cubic);
+}
+
+.work-items:hover .hover-bg {
+  opacity: 1;
 }
 
 .work-item {
@@ -190,6 +221,93 @@ a {
   overflow: hidden;
 }
 
-.work-items:hover .hover-bg {
-  opacity: 1;
+.projects-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  cursor: pointer;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 35rem;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.25s var(--ease-out-cubic);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+.project-card h3::after {
+  margin-left: 0.5rem;
+  content: "↗";
+}
+
+.project-card p {
+  color: var(--text-secondary);
+}
+
+.all-projects {
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+}
+.all-projects::after {
+  content: "→";
+  margin-left: 0.5rem;
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out-cubic);
+}
+.all-projects:hover::after {
+  transform: translateX(0.5rem);
+}
+
+.coming-soon {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideInFromTop 1.5s var(--ease-out-circ) forwards;
+}
+.work-items a:nth-child(1) .work-item.animate-slide {
+  animation-delay: 0.1s;
+}
+.work-items a:nth-child(2) .work-item.animate-slide {
+  animation-delay: 0.2s;
+}
+.work-items a:nth-child(3) .work-item.animate-slide {
+  animation-delay: 0.3s;
+}
+.work-items a:nth-child(4) .work-item.animate-slide {
+  animation-delay: 0.4s;
+}
+.work-items a:nth-child(5) .work-item.animate-slide {
+  animation-delay: 0.5s;
 }
