@@ -17,8 +17,15 @@
   );
   document.querySelectorAll(".project-card").forEach((item) =>
     item.addEventListener("mouseenter", () => {
-      document.querySelector(".project-hover-bg").style.transform =
-        `translateX(${item.offsetLeft}px)`;
+      const hoverBg = document.querySelector(".project-hover-bg");
+      hoverBg.style.transform = `translateX(${item.offsetLeft}px)`;
+      hoverBg.style.width = `${item.offsetWidth}px`;
+      hoverBg.style.opacity = "1";
+    }),
+  );
+  document.querySelectorAll(".project-card").forEach((item) =>
+    item.addEventListener("mouseleave", () => {
+      document.querySelector(".project-hover-bg").style.opacity = "0";
     }),
   );
 })();
