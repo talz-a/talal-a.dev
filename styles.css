@@ -15,7 +15,6 @@
   --background: #ffffff;
   --text-primary: #111111;
   --text-secondary: #707070;
-  --header-gradient: linear-gradient(180deg, #222, #000);
   --button-bg: #f3f3f3;
   --button-border: #d1d1d1;
   --button-hover-bg: #dbdbdb;
@@ -24,20 +23,17 @@
   --work-item-hover-bg: #f5f5f5;
   --button-shadow: 0px 0px 0.5px var(--button-highlight-shadow);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1f1f1f;
     --text-primary: #f5f5f5;
     --text-secondary: #a0a0a0;
-    --header-gradient: linear-gradient(180deg, #e0e0e0, #bcbcbc);
     --button-bg: #2a2a2a;
     --button-border: #3a3a3a;
     --button-hover-bg: #333333;
     --button-highlight-shadow: #000000;
     --highlight-blue: #339bff;
     --work-item-hover-bg: #2c2c2c;
-    --button-shadow: 0px 0px 0px 0.5px var(--button-highlight-shadow);
   }
 }
 
@@ -46,14 +42,6 @@ body {
   background-color: var(--background);
   font-family: "Inter", Fallback, sans-serif;
 }
-
-/* h1, */
-/* h2, */
-/* h3 { */
-/*   background: var(--header-gradient); */
-/*   background-clip: text; */
-/*   -webkit-text-fill-color: transparent; */
-/* } */
 
 h1 {
   font-size: 2.5rem;
