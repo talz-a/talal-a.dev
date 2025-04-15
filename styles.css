@@ -55,7 +55,7 @@ h1 {
 
 img {
   opacity: 0;
-  transition: opacity 0.25s var(--ease-out-cubic);
+  transition: opacity 0.5s ease;
 }
 img[data-loaded="true"] {
   opacity: 1;
@@ -377,20 +377,23 @@ a {
 .animate-slide {
   opacity: 0;
   transform: translateY(-50px);
-  animation: slideInFromTop 1.5s var(--ease-out-circ) forwards;
+  animation: slideInFromTop 2s var(--ease-out-circ) forwards;
 }
 .work-items a:nth-child(1) .work-item.animate-slide {
   animation-delay: 0.1s;
 }
 .work-items a:nth-child(2) .work-item.animate-slide {
-  animation-delay: 0.2s;
-}
-.work-items a:nth-child(3) .work-item.animate-slide {
-  animation-delay: 0.3s;
-}
-.work-items a:nth-child(4) .work-item.animate-slide {
   animation-delay: 0.4s;
 }
-.work-items a:nth-child(5) .work-item.animate-slide {
+.work-items a:nth-child(3) .work-item.animate-slide {
   animation-delay: 0.5s;
+}
+.work-items a:nth-child(4) .work-item.animate-slide {
+  animation-delay: 0.6s;
+}
+.work-items a:nth-child(5) .work-item.animate-slide {
+  animation-delay: 0.7s;
+}
+.work-items a:nth-child(6) .work-item.animate-slide {
+  animation-delay: 0.8s;
 }
