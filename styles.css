@@ -55,7 +55,7 @@ h1 {
 
 img {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.25s var(--ease-out-cubic);
 }
 img[data-loaded="true"] {
   opacity: 1;
