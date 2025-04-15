@@ -394,6 +394,3 @@ a {
 .work-items a:nth-child(5) .work-item.animate-slide {
   animation-delay: 0.5s;
 }
-.work-items a:nth-child(6) .work-item.animate-slide {
-  animation-delay: 0.6s;
-}
