@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Inter";
-  src: url("./public/fonts/Inter-Regular.otf") format("opentype");
+  src: url("./public/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: normal;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./public/fonts/Inter-Bold.otf") format("opentype");
+  src: url("./public/fonts/Inter-Bold.woff2") format("woff2");
   font-weight: bold;
 }
 
@@ -393,4 +393,7 @@ a {
 }
 .work-items a:nth-child(5) .work-item.animate-slide {
   animation-delay: 0.5s;
+}
+.work-items a:nth-child(6) .work-item.animate-slide {
+  animation-delay: 0.6s;
 }
