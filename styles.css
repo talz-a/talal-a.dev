@@ -22,6 +22,23 @@
   --button-highlight-shadow: #ffffff;
   --highlight-blue: #007aff;
   --work-item-hover-bg: #f5f5f5;
+  --button-shadow: 0px 0px 0.5px var(--button-highlight-shadow);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1f1f1f;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --header-gradient: linear-gradient(180deg, #e0e0e0, #bcbcbc);
+    --button-bg: #2a2a2a;
+    --button-border: #3a3a3a;
+    --button-hover-bg: #333333;
+    --button-highlight-shadow: #000000;
+    --highlight-blue: #339bff;
+    --work-item-hover-bg: #2c2c2c;
+    --button-shadow: 0px 0px 0px 0.5px var(--button-highlight-shadow);
+  }
 }
 
 body {
@@ -30,13 +47,13 @@ body {
   font-family: "Inter", Fallback, sans-serif;
 }
 
-h1,
-h2,
-h3 {
-  background: var(--header-gradient);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* h1, */
+/* h2, */
+/* h3 { */
+/*   background: var(--header-gradient); */
+/*   background-clip: text; */
+/*   -webkit-text-fill-color: transparent; */
+/* } */
 
 h1 {
   font-size: 2.5rem;
@@ -97,9 +114,7 @@ a {
   color: inherit;
   background: var(--button-bg);
   border: 1px solid var(--button-border);
-  box-shadow:
-    0px 0px 1px 1px rgba(255, 255, 255, 0.08) inset,
-    0px 0px 0px 0.5px var(--button-highlight-shadow);
+  box-shadow: var(--button-shadow);
   padding: 0.6rem 1.6rem;
   border-radius: 0.6rem;
   transition: all 0.25s var(--ease-out-cubic);
@@ -322,9 +337,7 @@ a {
   cursor: pointer;
   background: var(--button-bg);
   border: 1px solid var(--button-border);
-  box-shadow:
-    0px 0px 1px 1px rgba(255, 255, 255, 0.08) inset,
-    0px 0px 0px 0.5px var(--button-highlight-shadow);
+  box-shadow: var(--button-shadow);
   padding: 0.4rem 0.8rem;
   border-radius: 0.6rem;
   display: inline-block;
