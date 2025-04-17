@@ -377,7 +377,7 @@ a {
 .animate-slide {
   opacity: 0;
   transform: translateY(-50px);
-  animation: slideInFromTop 2s var(--ease-out-circ) forwards;
+  animation: slideInFromTop 1.5s var(--ease-out-circ) forwards;
 }
 .work-items a:nth-child(1) .work-item.animate-slide {
   animation-delay: 0.1s;
