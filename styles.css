@@ -383,17 +383,17 @@ a {
   animation-delay: 0.1s;
 }
 .work-items a:nth-child(2) .work-item.animate-slide {
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 .work-items a:nth-child(3) .work-item.animate-slide {
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
 }
 .work-items a:nth-child(4) .work-item.animate-slide {
-  animation-delay: 0.6s;
+  animation-delay: 0.4s;
 }
 .work-items a:nth-child(5) .work-item.animate-slide {
-  animation-delay: 0.7s;
+  animation-delay: 0.5s;
 }
 .work-items a:nth-child(6) .work-item.animate-slide {
-  animation-delay: 0.8s;
+  animation-delay: 0.6s;
 }
