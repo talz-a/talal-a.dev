@@ -53,14 +53,6 @@ h1 {
   }
 }
 
-img {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-img[data-loaded="true"] {
-  opacity: 1;
-}
-
 a {
   text-decoration: none;
   color: inherit;

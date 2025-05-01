@@ -28,13 +28,4 @@
       document.querySelector(".project-hover-bg").style.opacity = "0";
     }),
   );
-  document.querySelectorAll("img").forEach((img) => {
-    if (img.complete) {
-      img.dataset.loaded = "true";
-    } else {
-      img.onload = () => {
-        img.dataset.loaded = "true";
-      };
-    }
-  });
 })();
