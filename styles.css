@@ -174,7 +174,6 @@ a {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 .work-hover-bg {
@@ -199,7 +198,7 @@ a {
 
 .work-item {
   position: relative;
-  padding: 0.75rem;
+  padding: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,7 +234,6 @@ a {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
 }
 @media (max-width: 768px) {
   .projects-grid {
@@ -270,7 +268,7 @@ a {
 
 .project-card {
   cursor: pointer;
-  padding: 1rem 1.2rem;
+  padding: 1rem 1.5rem;
   border-radius: 0.6rem;
   height: 300px;
   display: flex;
