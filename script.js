@@ -1,80 +1,69 @@
 (() => {
   document.body.onmousemove = (e) => {
-    const constraint = 40;
     const face = document.querySelector(".pfp-icon");
-    window.requestAnimationFrame(() => {
-      const { x, y, width, height } = face.getBoundingClientRect();
-      const rotateX = -((e.clientY - y - height / 2) / constraint);
-      const rotateY = (e.clientX - x - width / 2) / constraint;
-      face.style.transform = `perspective(100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
+    const { x, y, width, height } = face.getBoundingClientRect();
+    const rotateX = -((e.clientY - y - height / 2) / 40);
+    const rotateY = (e.clientX - x - width / 2) / 40;
+    face.style.transform = `perspective(100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   };
-  let justEnteredWorkItems = false;
-  const workItemsContainer = document.querySelector(".work-items");
-  if (workItemsContainer) {
-    workItemsContainer.addEventListener("mouseenter", () => {
-      justEnteredWorkItems = true;
-    });
-    workItemsContainer.addEventListener("mouseleave", () => {
-      justEnteredWorkItems = false;
-    });
-  }
+
+  let workJustEntered = false;
+  document.querySelector(".work-items").addEventListener("mouseenter", () => {
+    workJustEntered = true;
+  });
+  document.querySelector(".work-items").addEventListener("mouseleave", () => {
+    workJustEntered = false;
+  });
+
   document.querySelectorAll(".work-item").forEach((item) => {
     item.addEventListener("mouseenter", () => {
       const hoverBg = document.querySelector(".work-hover-bg");
-      if (justEnteredWorkItems) {
+      if (workJustEntered) {
         hoverBg.style.transition = "none";
         hoverBg.style.transform = `translateY(${item.offsetTop}px)`;
         void hoverBg.offsetHeight;
-        hoverBg.style.transition =
-          "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic)";
-        hoverBg.style.opacity = "1";
-        justEnteredWorkItems = false;
-      } else {
-        hoverBg.style.transition =
-          "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic)";
-        hoverBg.style.transform = `translateY(${item.offsetTop}px)`;
-        hoverBg.style.opacity = "1";
+        workJustEntered = false;
       }
+      hoverBg.style.transition =
+        "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic)";
+      hoverBg.style.transform = `translateY(${item.offsetTop}px)`;
+      hoverBg.style.opacity = "1";
     });
     item.addEventListener("mouseleave", () => {
-      const hoverBg = document.querySelector(".work-hover-bg");
-      hoverBg.style.opacity = "0";
+      document.querySelector(".work-hover-bg").style.opacity = "0";
     });
   });
-  let justEnteredProjects = false;
-  const projectsGrid = document.querySelector(".projects-grid");
-  if (projectsGrid) {
-    projectsGrid.addEventListener("mouseenter", () => {
-      justEnteredProjects = true;
+
+  let projectsJustEntered = false;
+  document
+    .querySelector(".projects-grid")
+    .addEventListener("mouseenter", () => {
+      projectsJustEntered = true;
     });
-    projectsGrid.addEventListener("mouseleave", () => {
-      justEnteredProjects = false;
+  document
+    .querySelector(".projects-grid")
+    .addEventListener("mouseleave", () => {
+      projectsJustEntered = false;
     });
-  }
+
   document.querySelectorAll(".project-card").forEach((item) => {
     item.addEventListener("mouseenter", () => {
       const hoverBg = document.querySelector(".project-hover-bg");
-      if (justEnteredProjects) {
+      if (projectsJustEntered) {
         hoverBg.style.transition = "none";
         hoverBg.style.transform = `translateX(${item.offsetLeft}px)`;
         hoverBg.style.width = `${item.offsetWidth}px`;
         void hoverBg.offsetHeight;
-        hoverBg.style.transition =
-          "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic), width 0.25s var(--ease-out-cubic)";
-        hoverBg.style.opacity = "1";
-        justEnteredProjects = false;
-      } else {
-        hoverBg.style.transition =
-          "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic), width 0.25s var(--ease-out-cubic)";
-        hoverBg.style.transform = `translateX(${item.offsetLeft}px)`;
-        hoverBg.style.width = `${item.offsetWidth}px`;
-        hoverBg.style.opacity = "1";
+        projectsJustEntered = false;
       }
+      hoverBg.style.transition =
+        "transform 0.25s var(--ease-out-cubic), opacity 0.25s var(--ease-out-cubic), width 0.25s var(--ease-out-cubic)";
+      hoverBg.style.transform = `translateX(${item.offsetLeft}px)`;
+      hoverBg.style.width = `${item.offsetWidth}px`;
+      hoverBg.style.opacity = "1";
     });
     item.addEventListener("mouseleave", () => {
-      const hoverBg = document.querySelector(".project-hover-bg");
-      hoverBg.style.opacity = "0";
+      document.querySelector(".project-hover-bg").style.opacity = "0";
     });
   });
 })();
